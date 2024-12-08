@@ -1,0 +1,64 @@
+// Problem statement
+// You are given a sorted array 'arr' of distinct values and a target value 'm'. You need to search for the index of the target value in the array.
+
+
+
+// Note:
+// 1. If the value is present in the array, return its index.
+// 2. If the value is absent, determine the index where it would be inserted in the array while maintaining the sorted order. 
+// 3. The given array has distinct integers.
+// 4. The given array may be empty.
+
+
+
+
+// Example:
+// Input:  arr = [1, 2, 4, 7],  m = 6 
+
+// Output: 3
+
+// Explanation: If the given array 'arr' is: [1, 2, 4, 7] and m = 6. We insert m = 6 in the array and get 'arr' as: [1, 2, 4, 6, 7]. The position of 6 is 3 (according to 0-based indexing)
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Function to search for the insert position of m in a sorted array
+int searchInsert(vector<int>& arr, int m) {
+    int n = arr.size();
+    if (n == 0) return 0; // If array is empty
+
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == m) {
+            return mid; // Element found
+        } else if (arr[mid] < m) {
+            left = mid + 1; // Search right half
+        } else {
+            right = mid - 1; // Search left half
+        }
+    }
+    return left; // Return insertion position
+}
+
+// Main function
+int main() {
+    int n, m;
+    cout << "Enter the number of elements in the sorted array: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Enter the elements of the array (sorted): ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Enter the target value to search/insert: ";
+    cin >> m;
+
+    int position = searchInsert(arr, m);
+
+    cout << "The target value should be at index: " << position << endl;
+
+    return 0;
+}

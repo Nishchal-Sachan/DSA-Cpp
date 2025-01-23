@@ -1,17 +1,17 @@
-// Given a sorted array arr[] and a number target, the task is to find the
-// lower bound of the target in this given array. The lower bound of a number 
-// is defined as the smallest index in the sorted array where the element is
-// greater than or equal to the given number.
+// Given a sorted array arr[] (with unique elements) and an integer k, find 
+// the index (0-based) of the largest element in arr[] that is less than or equal to k. This element is called the "floor" of k. If such an element does not exist, return -1.
 
+// Examples
 
-// Note: If all the elements in the given array are smaller than the target,
-// the lower bound will be the length of the array. 
-
-// Examples :
-// Input:  arr[] = [2, 3, 7, 10, 11, 11, 25], target = 9
-// Output: 3
-// Explanation: 3 is the smallest index in arr[] where element (arr[3] = 10) 
-// is greater than or equal to 9.
+// Input: arr[] = [1, 2, 8, 10, 11, 12, 19], k = 0
+// Output: -1
+// Explanation: No element less than 0 is found. So output is -1.
+// Input: arr[] = [1, 2, 8, 10, 11, 12, 19], k = 5
+// Output: 1
+// Explanation: Largest Number less than 5 is 2 , whose index is 1.
+// Input: arr[] = [1, 2, 8], k = 1
+// Output: 0
+// Explanation: Largest Number less than or equal to  1 is 1 , whose index is 0.
 
 
 
@@ -20,17 +20,25 @@
 #include <vector>
 using namespace std;
 
-int lowerBound(vector<int>& arr, int target) {
-    int s = 0, e = arr.size()-1;
-    while (s <= e) {
-        int mid = s + (e - s) / 2;
-        if (arr[mid] < target) {
-            s = mid + 1;
-        } else {
-            e = mid-1;
+int lowerBound(vector<int>& arr, int k) {
+    int ans;
+        if(arr[0]>k){
+            return -1;
         }
-    }
-    return s;
+        int s=0,e=arr.size()-1;
+        while(s<=e){
+            int mid=s+(e-s)/2;
+            if(arr[mid]==k){
+                return mid;
+            }
+            else if(arr[mid]<k){
+                ans=mid;
+                s=mid+1;
+            }else{
+                e=mid-1;
+            }
+        }
+        return ans;
 
 }
 

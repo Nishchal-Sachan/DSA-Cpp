@@ -1,34 +1,40 @@
 #include <iostream>
 using namespace std;
 
-class Node {
+class Node
+{
 public:
     int data;
     Node *next;
 
     // Constructor
-    Node(int d) {
+    Node(int d)
+    {
         this->data = d;
         this->next = NULL;
     }
 
     // Destructor
-    ~Node() {
+    ~Node()
+    {
         cout << "Node with value " << data << " deleted successfully!" << endl;
     }
 };
 
 // Insert at head
-void insertAtHead(Node *&head, int d) {
+void insertAtHead(Node *&head, int d)
+{
     Node *temp = new Node(d);
     temp->next = head;
     head = temp;
 }
 
 // Print linked list
-void print(Node *head) {
+void print(Node *head)
+{
     Node *temp = head;
-    while (temp != NULL) {
+    while (temp != NULL)
+    {
         cout << temp->data << " ";
         temp = temp->next;
     }
@@ -36,30 +42,34 @@ void print(Node *head) {
 }
 
 // Reverse the linked list
-void reverse(Node* &head,Node*curr,Node*prev) {
-    //base case
-    if (curr == NULL) {
-        head=prev;
+void reverse(Node *&head, Node *curr, Node *prev)
+{
+    // base case
+    if (curr == NULL)
+    {
+        head = prev;
         return;
     }
 
-    Node* temp = curr->next;
-    reverse(head,temp,curr);
+    Node *temp = curr->next;
+    reverse(head, temp, curr);
     curr->next = prev;
-    
 }
 
 // Function to delete the entire linked list
-void deleteList(Node* &head) {
-    Node* temp;
-    while (head != NULL) {
+void deleteList(Node *&head)
+{
+    Node *temp;
+    while (head != NULL)
+    {
         temp = head;
         head = head->next;
         delete temp;
     }
 }
 
-int main() {
+int main()
+{
     Node *head = NULL;
 
     insertAtHead(head, 5);
@@ -72,7 +82,7 @@ int main() {
     print(head);
     Node *prev = NULL;
     Node *curr = head;
-   reverse(head,curr,prev);
+    reverse(head, curr, prev);
     cout << "Reversed List: ";
     print(head);
 

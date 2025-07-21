@@ -1,26 +1,31 @@
 #include <iostream>
-#include <algorithm>  // for max()
+#include <algorithm> // for max()
 
 using namespace std;
 
 // Definition of the Node class
-class Node {
+class Node
+{
 public:
     int data;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 
-    Node(int val) {
+    Node(int val)
+    {
         data = val;
         left = right = NULL;
     }
 };
 
 // Solution class containing height function
-class Solution {
+class Solution
+{
 public:
-    int height(Node* root) {
-        if (root == NULL) {
+    int height(Node *root)
+    {
+        if (root == NULL)
+        {
             return 0;
         }
 
@@ -31,15 +36,16 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     // Manually creating the following tree:
     //         1
     //       /   \
     //      2     3
     //     / \     
-    //    4   5  
+    //    4   5
 
-    Node* root = new Node(1);
+    Node *root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);

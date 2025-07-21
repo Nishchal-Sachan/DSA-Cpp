@@ -3,28 +3,34 @@
 using namespace std;
 
 // Definition for a binary tree node
-class Node {
+class Node
+{
 public:
     int data;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 
-    Node(int val) {
+    Node(int val)
+    {
         data = val;
         left = NULL;
         right = NULL;
     }
 };
 
-Node* newNode(int val) {
+Node *newNode(int val)
+{
     return new Node(val);
 }
 
 // Solution class
-class Solution {
+class Solution
+{
 public:
-    pair<int, int> solve(Node* root) {
-        if (root == NULL) {
+    pair<int, int> solve(Node *root)
+    {
+        if (root == NULL)
+        {
             return make_pair(0, 0); // {diameter, height}
         }
 
@@ -36,18 +42,20 @@ public:
         int op3 = left.second + right.second + 1;
 
         pair<int, int> ans;
-        ans.first = max(op1, max(op2, op3));  // diameter
-        ans.second = max(left.second, right.second) + 1;  // height
+        ans.first = max(op1, max(op2, op3));             // diameter
+        ans.second = max(left.second, right.second) + 1; // height
 
         return ans;
     }
 
-    int diameter(Node* root) {
+    int diameter(Node *root)
+    {
         return solve(root).first;
     }
 };
 
-int main() {
+int main()
+{
     /*
         Constructed Binary Tree:
                12
@@ -57,7 +65,7 @@ int main() {
            5  11
     */
 
-    Node* root = newNode(12);
+    Node *root = newNode(12);
     root->left = newNode(8);
     root->right = newNode(18);
     root->left->left = newNode(5);

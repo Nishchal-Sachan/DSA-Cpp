@@ -1,4 +1,4 @@
-```markdown
+````markdown
 <h1 align="center">🚀 DSA in C++</h1>
 
 <p align="center">
@@ -115,4 +115,3 @@ g++ folderName/filename.cpp -o filename && ./filename
 ## 🧠 Quote to Remember
 
 > *“DSA is not about memorizing solutions. It's about understanding patterns.”* 💡
-```

@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/github/repo-size/Nishchal-Sachan/DSA-Cpp?style=flat-square" />
   <img src="https://img.shields.io/github/last-commit/Nishchal-Sachan/DSA-Cpp?style=flat-square" />
   <img src="https://img.shields.io/badge/DSA-C%2B%2B-blue.svg?style=flat-square" />
-  <img src="https://img.shields.io/badge/Problems%20Solved-117-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/Problems%20Solved-121-green?style=flat-square" />
 </p>
 
 <p align="center">
@@ -33,7 +33,7 @@
 | Bit Manipulation | 0/5 | 🔜 Not Started |
 | STL Problems | 0/10 | 🔜 Not Started |
 
-> 🔖 **Total Problems Solved:** `117+`  
+> 🔖 **Total Problems Solved:** `121+`  
 > ⏳ Keep checking back! This repo is actively updated.
 
 ---
